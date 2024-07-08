@@ -4,7 +4,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-from logistic_regression.repository.logistic_regression_repository import LogisticRegressionRepository
+from customer_churn_logistic_regression.repository.logistic_regression_repository import LogisticRegressionRepository
 import os
 import pandas as pd
 

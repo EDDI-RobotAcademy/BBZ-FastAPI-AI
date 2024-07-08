@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
-from logistic_regression.service.logistic_regression_service_impl import LogisticRegressionServiceImpl
+from customer_churn_logistic_regression.service.logistic_regression_service_impl import LogisticRegressionServiceImpl
 
 
 logisticRegressionRouter = APIRouter()
@@ -13,7 +13,7 @@ async def injectLogisticRegressionService() -> LogisticRegressionServiceImpl:
 async def logisticRegression(logisticRegressionService: LogisticRegressionServiceImpl =
                             Depends(injectLogisticRegressionService)):
 
-    print("survey logistic_regression()")
+    print("survey customer_churn_logistic_regression()")
     logisticRegressionService.trainData()
     print("이탈 예측 모델 학습 완료")
 

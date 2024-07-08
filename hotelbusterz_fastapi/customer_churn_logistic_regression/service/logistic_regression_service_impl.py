@@ -1,8 +1,8 @@
 import joblib
 import numpy as np
 
-from logistic_regression.repository.logistic_regression_repository_impl import LogisticRegressionRepositoryImpl
-from logistic_regression.service.logistic_regression_service import LogisticRegressionService
+from customer_churn_logistic_regression.repository.logistic_regression_repository_impl import LogisticRegressionRepositoryImpl
+from customer_churn_logistic_regression.service.logistic_regression_service import LogisticRegressionService
 
 
 class LogisticRegressionServiceImpl(LogisticRegressionService):

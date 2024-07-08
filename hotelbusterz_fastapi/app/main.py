@@ -2,7 +2,7 @@ import aiomysql
 from fastapi import FastAPI
 
 from async_db.database import getMySqlPool
-from logistic_regression.controller.logistic_regression_controller import logisticRegressionRouter
+from customer_churn_logistic_regression.controller.logistic_regression_controller import logisticRegressionRouter
 
 
 import warnings
