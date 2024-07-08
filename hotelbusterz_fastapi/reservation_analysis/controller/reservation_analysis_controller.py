@@ -32,6 +32,7 @@ async def reservationPredict(request: ReservationRequestForm,
                                                                               request.num_of_adult,
                                                                               request.num_of_child,
                                                                               request.is_exist_car, )
-        return JSONResponse(content=result, status_code=status.HTTP_200_OK)
+        result = result.tolist()
+        return JSONResponse(content=result[0], status_code=status.HTTP_200_OK)
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))

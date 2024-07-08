@@ -19,8 +19,16 @@ class ReservationAnalysisRepository(ABC):
         pass
 
     @abstractmethod
+    def saveModel(self, model):
+        pass
+
+    @abstractmethod
     def transformFromScaler(self, scaler, X_pred):
         pass
+    @abstractmethod
+    def loadKmeansModel(self):
+        pass
+
     @abstractmethod
     def predictFromModel(self, reservationModel, X_pred_scaler):
         pass
