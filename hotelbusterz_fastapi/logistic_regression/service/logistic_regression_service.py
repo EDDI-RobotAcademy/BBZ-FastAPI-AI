@@ -2,4 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class LogisticRegressionService(ABC):
-    pass
+    @abstractmethod
+    def trainData(self):
+        pass
+
+    @abstractmethod
+    def predictChurnPercent(self):
+        pass
