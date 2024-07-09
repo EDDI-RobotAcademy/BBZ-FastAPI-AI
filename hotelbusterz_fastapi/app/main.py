@@ -1,9 +1,8 @@
 import aiomysql
 from fastapi import FastAPI
 
-# from async_db.database import getMySqlPool
-# from logistic_regression.controller.logistic_regression_controller import logisticRegressionRouter
-
+from async_db.database import getMySqlPool
+from customer_churn_logistic_regression.controller.logistic_regression_controller import logisticRegressionRouter
 
 import warnings
 
@@ -32,6 +31,8 @@ def read_root():
 
 # app.include_router(logisticRegressionRouter)
 app.include_router(reservationAnalysisRouter)
+
+
 
 if __name__ == "__main__":
     import uvicorn
