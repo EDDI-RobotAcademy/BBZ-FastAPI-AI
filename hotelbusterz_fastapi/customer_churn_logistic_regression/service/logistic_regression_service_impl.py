@@ -1,8 +1,10 @@
 import joblib
 import numpy as np
 
-from customer_churn_logistic_regression.repository.logistic_regression_repository_impl import LogisticRegressionRepositoryImpl
-from customer_churn_logistic_regression.service.logistic_regression_service import LogisticRegressionService
+from hotelbusterz_fastapi.customer_churn_logistic_regression.repository.logistic_regression_repository_impl import \
+    LogisticRegressionRepositoryImpl
+from hotelbusterz_fastapi.customer_churn_logistic_regression.service.logistic_regression_service import \
+    LogisticRegressionService
 
 
 class LogisticRegressionServiceImpl(LogisticRegressionService):
@@ -32,6 +34,9 @@ class LogisticRegressionServiceImpl(LogisticRegressionService):
     def predictChurnPercent(self, X_new):
         loadedSurveyModel = self.logisticRegressionRepositoryImpl.loadSurveyModel()
         loadedSurveyModelScaler = self.logisticRegressionRepositoryImpl.loadSurveyModelScaler()
+
+        print(X_new)
+        # 포스트맨으로 보낼 때 이슈 처리 부분, 웹 입력은 다를 수도 있음
         X_newNum = [X_new.num_of_adult, X_new.num_of_child, X_new.have_breakfast, X_new.is_exist_car, X_new.len_of_reservation]
         print(X_newNum)
         X_newNum =  np.array(X_newNum)
