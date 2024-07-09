@@ -302,3 +302,15 @@ pyrightconfig.json
 
 # exclude .csv
 *.csv
+
+# exclude excel file
+*.xlsx
+
+# exclude .pkl
+*.pkl
+
+# exclude .h5
+*.h5
+
+# exclude .joblib
+*.joblib
