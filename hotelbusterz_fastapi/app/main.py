@@ -1,5 +1,9 @@
+import os
+
 import aiomysql
+from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # from async_db.database import getMySqlPool
 # from logistic_regression.controller.logistic_regression_controller import logisticRegressionRouter
@@ -13,6 +17,7 @@ from hotelbusterz_fastapi.reservation_analysis.controller.reservation_analysis_c
 
 warnings.filterwarnings("ignore", category=aiomysql.Warning)
 
+
 async def lifespan(app: FastAPI):
     # Startup
     app.state.dbPool = await getMySqlPool()
@@ -25,6 +30,18 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+load_dotenv()
+
+origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
+#
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+app.state.connections = set()
 
 @app.get("/")
 def read_root():
