@@ -15,18 +15,19 @@ class ReservationAnalysisRepository(ABC):
         pass
 
     @abstractmethod
-    def fitModel(self, model, X_train, y_train, epochs, validation_split, batch_size, verbose):
+    def fitModel(self, model, X_train, y_train):
         pass
 
     @abstractmethod
-    def saveModel(self, model):
+    def saveModel(self, model, fileName):
         pass
 
     @abstractmethod
     def transformFromScaler(self, scaler, X_pred):
         pass
+
     @abstractmethod
-    def loadKmeansModel(self):
+    def loadKmeansModel(self, modelPath):
         pass
 
     @abstractmethod
