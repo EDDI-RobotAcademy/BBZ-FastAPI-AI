@@ -5,16 +5,12 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# from async_db.database import getMySqlPool
-# from customer_churn_logistic_regression.controller.logistic_regression_controller import logisticRegressionRouter
+from async_db.database import getMySqlPool
+from customer_churn_logistic_regression.controller.logistic_regression_controller import logisticRegressionRouter
 
 import warnings
 
-from hotelbusterz_fastapi.async_db.database import getMySqlPool
-from hotelbusterz_fastapi.customer_churn_logistic_regression.controller.logistic_regression_controller import \
-    logisticRegressionRouter
-from hotelbusterz_fastapi.reservation_analysis.controller.reservation_analysis_controller import \
-    reservationAnalysisRouter
+from reservation_analysis.controller.reservation_analysis_controller import reservationAnalysisRouter
 
 warnings.filterwarnings("ignore", category=aiomysql.Warning)
 
@@ -48,7 +44,6 @@ app.state.connections = set()
 def read_root():
     return {"Hello": "World"}
 
-# app.include_router(logisticRegressionRouter)
 app.include_router(reservationAnalysisRouter)
 app.include_router(logisticRegressionRouter)
 

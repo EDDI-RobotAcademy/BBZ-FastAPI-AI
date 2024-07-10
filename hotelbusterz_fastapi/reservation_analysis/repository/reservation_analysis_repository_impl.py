@@ -7,8 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
-from hotelbusterz_fastapi.reservation_analysis.repository.reservation_analysis_repository import \
-    ReservationAnalysisRepository
+from reservation_analysis.repository.reservation_analysis_repository import ReservationAnalysisRepository
 
 
 class ReservationAnalysisRepositoryImpl(ReservationAnalysisRepository):

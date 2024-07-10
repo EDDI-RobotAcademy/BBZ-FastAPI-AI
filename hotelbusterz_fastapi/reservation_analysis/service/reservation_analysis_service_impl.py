@@ -5,9 +5,8 @@ import pandas as pd
 import tensorflow as tf
 import numpy as np
 
-from hotelbusterz_fastapi.reservation_analysis.repository.reservation_analysis_repository_impl import \
-    ReservationAnalysisRepositoryImpl
-from hotelbusterz_fastapi.reservation_analysis.service.reservation_analysis_service import ReservationAnalysisService
+from reservation_analysis.repository.reservation_analysis_repository_impl import ReservationAnalysisRepositoryImpl
+from reservation_analysis.service.reservation_analysis_service import ReservationAnalysisService
 
 
 class ReservationAnalysisServiceImpl(ReservationAnalysisService):
