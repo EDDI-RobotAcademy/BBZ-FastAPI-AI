@@ -7,5 +7,5 @@ class LogisticRegressionService(ABC):
         pass
 
     @abstractmethod
-    def predictChurnPercent(self):
+    def predictChurnPercent(self, X_new):
         pass
