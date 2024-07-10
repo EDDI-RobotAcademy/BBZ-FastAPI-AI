@@ -19,15 +19,18 @@ async def logisticRegression(logisticRegressionService: LogisticRegressionServic
 
 
 class PredictRequest(BaseModel):
-    num_of_adult: int
-    num_of_child: int
-    have_breakfast: int
-    is_exist_car: int
-    len_of_reservation: int
+    feature1: int
+    feature2: int
+    feature3: int
+    feature4: int
+    feature5: int
+    feature6: int
+    feature7: int
+    feature8: int
 
 
 @logisticRegressionRouter.post("/churn-predict")
 async def churnPredict(X_new: PredictRequest, logisticRegressionService: LogisticRegressionServiceImpl =
 Depends(injectLogisticRegressionService)):
     churn_percent = logisticRegressionService.predictChurnPercent(X_new)
-    return churn_percent[-1][-1] * 100
+    return churn_percent
