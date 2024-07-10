@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
-from hotelbusterz_fastapi.customer_churn_logistic_regression.service.logistic_regression_service_impl import \
-    LogisticRegressionServiceImpl
+from customer_churn_logistic_regression.service.logistic_regression_service_impl import LogisticRegressionServiceImpl
 
 logisticRegressionRouter = APIRouter()
 

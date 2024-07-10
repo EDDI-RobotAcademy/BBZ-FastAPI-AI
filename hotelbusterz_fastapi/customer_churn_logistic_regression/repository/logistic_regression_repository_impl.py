@@ -7,8 +7,7 @@ from sklearn.preprocessing import StandardScaler
 import os
 import pandas as pd
 
-from hotelbusterz_fastapi.customer_churn_logistic_regression.repository.logistic_regression_repository import \
-    LogisticRegressionRepository
+from customer_churn_logistic_regression.repository.logistic_regression_repository import LogisticRegressionRepository
 
 
 class LogisticRegressionRepositoryImpl(LogisticRegressionRepository):

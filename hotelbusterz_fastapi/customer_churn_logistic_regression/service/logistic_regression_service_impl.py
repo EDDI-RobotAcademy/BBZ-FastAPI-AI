@@ -1,10 +1,9 @@
 import joblib
 import numpy as np
 
-from hotelbusterz_fastapi.customer_churn_logistic_regression.repository.logistic_regression_repository_impl import \
+from customer_churn_logistic_regression.repository.logistic_regression_repository_impl import \
     LogisticRegressionRepositoryImpl
-from hotelbusterz_fastapi.customer_churn_logistic_regression.service.logistic_regression_service import \
-    LogisticRegressionService
+from customer_churn_logistic_regression.service.logistic_regression_service import LogisticRegressionService
 
 
 class LogisticRegressionServiceImpl(LogisticRegressionService):

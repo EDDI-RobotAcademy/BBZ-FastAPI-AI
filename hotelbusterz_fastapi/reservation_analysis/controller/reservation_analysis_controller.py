@@ -1,10 +1,8 @@
 from fastapi import APIRouter, Depends, status, HTTPException
 from fastapi.responses import JSONResponse
 
-from hotelbusterz_fastapi.reservation_analysis.controller.request_form.reservation_request_form import \
-    ReservationRequestForm
-from hotelbusterz_fastapi.reservation_analysis.service.reservation_analysis_service_impl import \
-    ReservationAnalysisServiceImpl
+from reservation_analysis.controller.request_form.reservation_request_form import ReservationRequestForm
+from reservation_analysis.service.reservation_analysis_service_impl import ReservationAnalysisServiceImpl
 
 reservationAnalysisRouter = APIRouter()
 
