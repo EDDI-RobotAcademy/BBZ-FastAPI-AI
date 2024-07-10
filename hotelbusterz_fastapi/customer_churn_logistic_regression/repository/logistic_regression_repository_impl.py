@@ -16,12 +16,12 @@ class LogisticRegressionRepositoryImpl(LogisticRegressionRepository):
         print(f"currentDirectory: {currentDirectory}")
 
         filePath = os.path.join(
-            currentDirectory, "..", "assets", "survey_data.xlsx")
+            currentDirectory, "..", "assets", "log_data_pivot.csv")
 
         try:
-            dataFrame = pd.read_excel(filePath)
-            X = dataFrame.drop(columns=['id', 'payment_date', 'product_id']).values
-            y = dataFrame['product_id'].values
+            dataFrame = pd.read_csv(filePath)
+            X = dataFrame
+            y = (dataFrame['ORDER'] >=1).astype(int)
 
             print('데이터 로드 완료')
             return X, y
@@ -58,8 +58,6 @@ class LogisticRegressionRepositoryImpl(LogisticRegressionRepository):
         y_pred = surveyModel.predict(X_test_scaled)
         print(classification_report(y_test, y_pred))
         # 모델의 성능을 보는 부분입니다
-        # 모델 성능을 웹에 띄울수 있지만 실시간 추론이 더 중요할 것 같습니다
-        # 뭔가문제생겨서 작동 막음
 
     def loadSurveyModel(self,):
         print('학습된 모델 로드 완료')
