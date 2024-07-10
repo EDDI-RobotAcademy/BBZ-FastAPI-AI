@@ -31,7 +31,8 @@ async def reservationPredict(request: ReservationRequestForm,
         result = await reservationAnalysisService.predictReservationFromModel(request.len_of_reservation,
                                                                               request.num_of_adult,
                                                                               request.num_of_child,
-                                                                              request.is_exist_car, )
+                                                                              request.is_exist_car)
+        print("result:", result)
         # result = result.tolist()
         return JSONResponse(content=result, status_code=status.HTTP_200_OK)
     except Exception as e:

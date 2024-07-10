@@ -33,7 +33,7 @@ class ReservationAnalysisServiceImpl(ReservationAnalysisService):
         print('dataFrame loaded')
         print(dataFrame)
 
-        X, y = await self.__reservationAnalysisRepository.prepareReservationInfo(dataFrame)
+        X, y = self.__reservationAnalysisRepository.prepareReservationInfo(dataFrame)
         print('scaling complete')
         print(f"X:{X}")
         print(f"y:{y}")
@@ -50,9 +50,9 @@ class ReservationAnalysisServiceImpl(ReservationAnalysisService):
         modelList = []
         for index in range(self.NUMBER_OF_MODELS):
             print(f"Start train Model{index + 1}/{self.NUMBER_OF_MODELS}")
-            model = await self.__reservationAnalysisRepository.createModel
-            await self.__reservationAnalysisRepository.fitModel(model, X, y)
-            await self.__reservationAnalysisRepository.saveModel(model, f"reservationModel_{index + 1}.h5")
+            model = self.__reservationAnalysisRepository.createModel()
+            fittedModel = await self.__reservationAnalysisRepository.fitModel(model, X, y)
+            self.__reservationAnalysisRepository.saveModel(fittedModel, f"reservationModel_{index + 1}.h5")
             modelList.append(model)
             print()
 

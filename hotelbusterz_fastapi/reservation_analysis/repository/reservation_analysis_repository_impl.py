@@ -14,7 +14,7 @@ class ReservationAnalysisRepositoryImpl(ReservationAnalysisRepository):
     NUM_OF_POINTS = 100000
     NUM_OF_FEATURES = 4
 
-    async def prepareReservationInfo(self, dataFrame):
+    def prepareReservationInfo(self, dataFrame):
         print(dataFrame[['len_of_reservation', 'num_of_adult', 'num_of_child', 'is_exist_car']].shape)
         # X = dataFrame[['len_of_reservation', 'num_of_adult', 'num_of_child', 'is_exist_car']].values.reshape(100000, 4)
         X = dataFrame[['len_of_reservation']].values.reshape(100000, 1)
@@ -28,7 +28,7 @@ class ReservationAnalysisRepositoryImpl(ReservationAnalysisRepository):
         X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=37)
         return X_train, X_test, y_train, y_test
 
-    async def createModel(self):
+    def createModel(self):
         # n_init은 중심위치 시도 횟수(default = 10)
         # model = KMeans(n_clusters=5, n_init=10)
 
@@ -37,8 +37,9 @@ class ReservationAnalysisRepositoryImpl(ReservationAnalysisRepository):
 
     async def fitModel(self, model, X_train, y_train):
         model.fit(X_train, y_train)
+        return model
 
-    async def saveModel(self, model, fileName):
+    def saveModel(self, model, fileName):
         joblib.dump(model, fileName)
         print('model saving complete')
 
