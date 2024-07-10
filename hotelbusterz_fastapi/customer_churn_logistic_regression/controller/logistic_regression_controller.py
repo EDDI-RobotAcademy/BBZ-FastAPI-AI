@@ -14,9 +14,10 @@ async def injectLogisticRegressionService() -> LogisticRegressionServiceImpl:
 async def logisticRegression(logisticRegressionService: LogisticRegressionServiceImpl =
                              Depends(injectLogisticRegressionService)):
     print("survey customer_churn_logistic_regression()")
-    logisticRegressionService.trainData()
+    base64_image = logisticRegressionService.trainData()
     print("이탈 예측 모델 학습 완료")
 
+    return base64_image
 
 class PredictRequest(BaseModel):
     feature1: int
