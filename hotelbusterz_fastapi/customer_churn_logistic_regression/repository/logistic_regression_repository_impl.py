@@ -21,6 +21,7 @@ class LogisticRegressionRepositoryImpl(LogisticRegressionRepository):
         try:
             dataFrame = pd.read_csv(filePath)
             X = dataFrame
+            # print(X)
             y = (dataFrame['ORDER'] >=1).astype(int)
 
             print('데이터 로드 완료')
@@ -30,7 +31,7 @@ class LogisticRegressionRepositoryImpl(LogisticRegressionRepository):
 
     def splitTrainTestData(self, X, y):
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=42)
+            X, y, test_size=0.2, stratify=y, random_state=42)
 
         print('데이터 분할 완료')
         return X_train, X_test, y_train, y_test
